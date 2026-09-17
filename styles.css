@@ -49,3 +49,4 @@ html{scroll-padding-top:140px}.header{height:132px;background:#111}.brand img{wi
 /* El hero es estable desde el primer render; firma exclusiva de escritorio. */
 .hero-copy{transform:none}
 @media(max-width:1023px){.hero-brand{display:none}.hero:has(.hero-brand){padding-top:72px;padding-bottom:112px}}
+@media(min-width:1024px){.hero-brand{top:42%}}
