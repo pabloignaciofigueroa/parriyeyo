@@ -39,3 +39,9 @@ html{scroll-padding-top:140px}.header{height:132px;background:#111}.brand img{wi
   .hero-brand{position:absolute;top:76px;right:var(--space);width:clamp(300px,28vw,420px);max-width:38%;height:auto;margin:0;filter:drop-shadow(0 2px 8px #000b);pointer-events:none}
   .hero:has(.hero-brand){padding-top:110px;padding-bottom:125px}
 }
+
+.hero-brand{display:block}.hero-brand img{display:block;width:100%;height:auto}
+@media(min-width:1024px){
+ .hero-brand{top:50%;left:72%;right:auto;width:clamp(360px,42vw,640px);max-width:46%;transform:translate(-50%,-50%);margin:0}
+ .hero-brand img{aspect-ratio:620/330;object-fit:contain}
+}
