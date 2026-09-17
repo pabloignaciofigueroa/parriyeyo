@@ -117,5 +117,4 @@ if (!motionPreference.matches && 'IntersectionObserver' in window) {
     });
   }, { threshold: .12 });
   document.querySelectorAll('.dish, .chef-image, .section-heading').forEach(el => entrances.observe(el));
-  $('.hero-copy').animate([{ transform: 'translateY(16px)' }, { transform: 'translateY(0)' }], { duration: 900, easing: 'cubic-bezier(.16,1,.3,1)' });
 }
