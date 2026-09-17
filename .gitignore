@@ -1,0 +1,9 @@
+# Respaldos de extracción y sesiones locales
+instagram/
+analisis/
+*.zip
+**/.mcp*session*
+.env
+.env.*
+__pycache__/
+
