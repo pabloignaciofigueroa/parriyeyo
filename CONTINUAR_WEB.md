@@ -57,3 +57,8 @@ Consultar `CONTINUAR_INSTAGRAM.md` y `instagram/LEEME.md` para inventario, base 
 - Componentes SVG separados y composiciones mediante código sobre trazados originales: logotipo.svg, isotipo.svg, bajada.svg, marco.svg, imagotipo-horizontal.svg, logotipo-enmarcado.svg. Marco separado vectorialmente, no afirmar que todo se exportó de Photoshop.
 - Navbar horizontal sin marco/bajada; firma completa reservada a footer y formatos grandes. Guía assets/marca/guia.html.
 - Más espacio, jerarquía, mayúsculas en navegación/títulos/platos; franjas naranjas anchas detrás de comida. QA a 320/390/768/1440 sin desbordes ni errores de la landing, imágenes y cotización bien.
+
+## Corrección de carga tipográfica
+- fonts.css incorpora las siete fuentes comprimidas a WOFF2 como datos, en una hoja bloqueante. Eliminado font-display:swap; se usa block durante la decodificación local. No se oculta el sitio mediante JavaScript.
+- index.html solicita fonts.css?v=2 para renovar caché de la versión anterior.
+- Prueba de navegador con caché desactivada por interceptación y 1200 ms de demora artificial: Barlow 400 y Barlow Condensed 700 cargadas al primer contenido visible, cero solicitudes externas TTF/WOFF, sin desborde.
