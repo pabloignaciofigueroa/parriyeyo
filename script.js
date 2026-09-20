@@ -114,7 +114,7 @@ function loadRitualVideo(){
  if(!ritualVideo.getAttribute('src')){
   ritualVideo.muted = true;
   ritualVideo.defaultMuted = true;
-  ritualVideo.src = ritualVideo.dataset.src;
+  ritualVideo.src = matchMedia('(max-width:800px)').matches ? ritualVideo.dataset.mobileSrc : ritualVideo.dataset.src;
   ritualVideo.load();
  }
 }
@@ -155,3 +155,7 @@ document.addEventListener('visibilitychange',syncRitualVideo);
 function updateRitualPreference(){ritualAllowed=!motion.matches&&!userReduced;syncRitualVideo();}
 motion.addEventListener('change',updateRitualPreference);
 $('#motion-mode').addEventListener('click',updateRitualPreference);
+
+matchMedia('(max-width:800px)').addEventListener('change',()=>{
+ ritualVideo.pause();ritualVideo.removeAttribute('src');loadRitualVideo();syncRitualVideo();
+});

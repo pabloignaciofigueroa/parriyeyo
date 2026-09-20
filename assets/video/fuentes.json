@@ -63,5 +63,27 @@
       3.5
     ]
   ],
-  "nota": "Recortes de videos propios de @parriyeyo. Originales preservados en instagram/videos."
+  "nota": "Recortes de videos propios de @parriyeyo. Originales preservados en instagram/videos.",
+  "ritual_loop": {
+    "file": "ritual-loop.mp4",
+    "duration_seconds": 12.8,
+    "segments": [
+      {
+        "file": "fuego.mp4",
+        "start": 0,
+        "end": 2.8
+      },
+      {
+        "file": "cocina.mp4",
+        "start": 4,
+        "end": 9
+      },
+      {
+        "file": "experiencia.mp4",
+        "start": 2,
+        "end": 7
+      }
+    ],
+    "note": "Montaje continuo sin audio. Excluye la transición incrustada al final de fuego.mp4."
+  }
 }
