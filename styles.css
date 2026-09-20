@@ -148,5 +148,5 @@ font-family:var(--body);font-size:var(--sans-size);line-height:var(--sans-leadin
 #inicio .round-seal{background:var(--orange);color:var(--ink);justify-content:center;align-items:center;text-align:center}
 #inicio .round-seal strong{margin-bottom:0}
 
-/* Header quotation CTA uses the title typeface. */
-#navigation .button{font-family:var(--display);font-size:var(--sans-size);line-height:var(--sans-leading);font-weight:700}
+/* Header CTA matches the sans buttons with one heavier weight. */
+#navigation .button{font-family:var(--body);font-size:var(--sans-size);line-height:var(--sans-leading);font-weight:600}
