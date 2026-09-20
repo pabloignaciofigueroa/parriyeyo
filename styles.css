@@ -56,3 +56,6 @@ summary>span,
 .hero-actions .text-button span{color:var(--action-icon)}
 
 .experience-punch{color:var(--paper)}
+
+/* Mobile header keeps only the brand. */
+@media(max-width:800px){.site-header .menu-toggle,.site-header nav,.site-header nav.is-open{display:none}}
