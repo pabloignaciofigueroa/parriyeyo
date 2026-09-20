@@ -84,10 +84,10 @@ function setupMotion(){
 
  });
  mm.add('(min-width: 801px) and (prefers-reduced-motion: no-preference)',()=>{
-   const section=$('.ritual'),steps=$$('.ritual-step'),images=$$('.ritual-image');section.classList.add('is-pinned');let currentStep=0;
-   function activate(i){if(i===currentStep)return;steps[currentStep].classList.remove('active');images[currentStep].classList.remove('active');currentStep=i;steps[i].classList.add('active');images[i].classList.add('active');gsap.fromTo(steps[i],{y:22},{y:0,duration:.55,ease:'power3.out'});gsap.fromTo(images[i],{opacity:.6,scale:1.035},{opacity:1,scale:1,duration:.6,ease:'power2.out'});}
+   const section=$('.ritual'),steps=$('.ritual-step');section.classList.add('is-pinned');let currentStep=0;
+   function activate(i){if(i===currentStep)return;steps[currentStep].classList.remove('active');currentStep=i;steps[i].classList.add('active');gsap.fromTo(steps[i],{y:22},{y:0,duration:.55,ease:'power3.out'});}
    ScrollTrigger.create({trigger:section,start:'top 90px',end:'bottom bottom',invalidateOnRefresh:true,onUpdate:self=>{activate(Math.min(2,Math.floor(self.progress*3)));$('.ritual-progress span').style.width=`${33.33+self.progress*66.67}%`;}});
-   return()=>{section.classList.remove('is-pinned');steps.forEach((s,i)=>s.classList.toggle('active',i===0));images.forEach((s,i)=>s.classList.toggle('active',i===0));};
+   return()=>{section.classList.remove('is-pinned');steps.forEach((s,i)=>s.classList.toggle('active',i===0));};
  });
  window.addEventListener('load',()=>ScrollTrigger.refresh(),{once:true});
 }
@@ -95,9 +95,8 @@ function setupMotion(){
 }
 setupMotion();
 
-// The fire scene is a real inline video on mobile and desktop.
+// One continuous loop at every viewport; scrolling changes only the copy.
 const ritualVideo = $('#ritual-video');
-const ritualFrame = $('.ritual-film');
 const ritualButton = $('#ritual-video-toggle');
 let ritualVisible = false;
 let ritualAllowed = !motion.matches;
@@ -105,26 +104,26 @@ function loadRitualVideo(){
  if(!ritualVideo.getAttribute('src')){
   ritualVideo.muted = true;
   ritualVideo.defaultMuted = true;
-  ritualVideo.src = matchMedia('(max-width:800px)').matches ? ritualVideo.dataset.mobileSrc : ritualVideo.dataset.src;
+  ritualVideo.src = ritualVideo.dataset.src;
   ritualVideo.load();
  }
 }
 function syncRitualVideo(){
- if(ritualAllowed && ritualVisible && ritualFrame.classList.contains('active') && !document.hidden && !$('dialog[open]')){
+ if(ritualAllowed && ritualVisible && !document.hidden && !$('dialog[open]')){
   loadRitualVideo();
   ritualVideo.play().catch(()=>{
    ritualButton.innerHTML='<span class="ui-icon" aria-hidden="true">▶</span> Reproducir';
-   ritualButton.setAttribute('aria-label','Reproducir video de fuego');
+   ritualButton.setAttribute('aria-label','Reproducir video de preparaciones');
   });
  }else ritualVideo.pause();
 }
 ritualVideo.addEventListener('play',()=>{
  ritualButton.innerHTML='<span class="ui-icon" aria-hidden="true">Ⅱ</span> Pausar';
- ritualButton.setAttribute('aria-label','Pausar video de fuego');
+ ritualButton.setAttribute('aria-label','Pausar video de preparaciones');
 });
 ritualVideo.addEventListener('pause',()=>{
  ritualButton.innerHTML='<span class="ui-icon" aria-hidden="true">▶</span> Reproducir';
- ritualButton.setAttribute('aria-label','Reproducir video de fuego');
+ ritualButton.setAttribute('aria-label','Reproducir video de preparaciones');
 });
 ritualButton.addEventListener('click',()=>{
  ritualAllowed=ritualVideo.paused;
@@ -140,12 +139,8 @@ if('IntersectionObserver' in window){
   syncRitualVideo();
  },{threshold:0}).observe($('.ritual-images'));
 }else{ritualVisible=true;syncRitualVideo();}
-new MutationObserver(syncRitualVideo).observe(ritualFrame,{attributes:true,attributeFilter:['class']});
 $$('dialog').forEach(dialog=>new MutationObserver(syncRitualVideo).observe(dialog,{attributes:true,attributeFilter:['open']}));
 document.addEventListener('visibilitychange',syncRitualVideo);
 function updateRitualPreference(){ritualAllowed=!motion.matches;syncRitualVideo();}
 motion.addEventListener('change',updateRitualPreference);
 
-matchMedia('(max-width:800px)').addEventListener('change',()=>{
- ritualVideo.pause();ritualVideo.removeAttribute('src');loadRitualVideo();syncRitualVideo();
-});
