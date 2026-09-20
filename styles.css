@@ -101,3 +101,7 @@ img[src^="assets/editorial/"],#gallery-image,#brand-video{border-radius:var(--co
 .hero h1{font-size:clamp(93.75px,9.375vw,140.625px)}
 @media(max-width:800px){.hero h1{font-size:103.125px}}
 @media(max-width:390px){.hero h1{font-size:93.75px}}
+
+/* Mobile poster lettering without expanding the hero beyond the viewport. */
+.hero-mobile-break{display:none}
+@media(max-width:600px){.hero-mobile-break{display:block}.hero-copy{min-width:0}.hero h1{max-width:100%;font-size:min(103.125px,24vw)}}
