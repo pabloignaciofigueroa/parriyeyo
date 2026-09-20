@@ -78,3 +78,7 @@ summary>span,
 /* Align paired mobile fields even when their labels wrap. */
 @media(max-width:800px){#quote-form .form-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 18px}#quote-form .form-grid>.wide{grid-column:1/-1}#quote-form .form-grid>label{display:flex;flex-direction:column;min-width:0}#quote-form .field-title{margin-bottom:8px}#quote-form .form-grid input,#quote-form .form-grid select{margin-top:auto;min-width:0;height:46px;flex-shrink:0}#quote-form .button{max-width:100%;gap:16px}}
 @media(max-width:350px){#quote-form .form-grid{grid-template-columns:minmax(0,1fr)}}
+
+/* Match the occasion selector text to the light form hints. */
+#quote-form #occasion{font-family:var(--body);font-weight:300;color:rgb(25 25 24 / 25%)}
+#quote-form #occasion option{color:var(--ink);font-weight:300;background:var(--paper)}
