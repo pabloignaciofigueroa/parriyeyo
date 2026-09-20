@@ -96,3 +96,8 @@ img[src^="assets/editorial/"],#gallery-image,#brand-video{border-radius:var(--co
 /* Preparation CTA follows the dark button contrast. */
 .kitchen-bottom .button{background:var(--ink);color:var(--paper);--action-icon:var(--orange)}
 .kitchen-bottom .button:hover{background:#383834}
+
+/* Hero title: 25 percent larger than the shared section scale. */
+.hero h1{font-size:clamp(75px,7.5vw,112.5px)}
+@media(max-width:800px){.hero h1{font-size:82.5px}}
+@media(max-width:390px){.hero h1{font-size:75px}}
