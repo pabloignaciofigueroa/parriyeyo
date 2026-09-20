@@ -147,3 +147,6 @@ font-family:var(--body);font-size:var(--sans-size);line-height:var(--sans-leadin
 /* Centered message on the brand orange seal. */
 #inicio .round-seal{background:var(--orange);color:var(--ink);justify-content:center;align-items:center;text-align:center}
 #inicio .round-seal strong{margin-bottom:0}
+
+/* Header quotation CTA uses the title typeface. */
+#navigation .button{font-family:var(--display);font-weight:700}
