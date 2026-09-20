@@ -318,5 +318,19 @@
       947
     ],
     "edit": "Photoshop: niveles, balance de color, enfoque suave y recorte editorial. PSD original y encuadre preservados."
+  },
+  {
+    "name": "yeyo-gesto",
+    "source": "1000266882.jpg, imagen adjunta proporcionada por Pablo",
+    "dimensions": [
+      1216,
+      1536
+    ],
+    "edit": "Conversión a WebP, calidad 88. Sin recorte ni alteración de rostro, gesto o leyenda original.",
+    "usage": [
+      "portada",
+      "equipo"
+    ],
+    "note": "La imagen suministrada incluye la leyenda Contenido generado por IA."
   }
 ]

@@ -14,8 +14,9 @@ dialog{border:0;background:var(--paper);color:var(--ink);padding:22px;max-width:
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.ticker-track{transform:none!important}.dish-photo:hover img,.hero-stills figure:hover img{transform:none}.ritual-stage{min-height:0}.ritual-images{min-height:550px}.ritual-step h2{font-size:42px}.ritual-step>p{font-size:16px}.ritual-copy{padding-block:40px}}
 
 
-.hero-stills figure:last-child img{object-position:center 12%}
-.chef-main img{object-position:center top;margin-top:0}
+.hero-stills figure:last-child img{object-position:center top}
+.chef-main{height:auto;aspect-ratio:1216/1536}
+.chef-main img{height:100%;object-position:center top;margin-top:0}
 @media(max-width:800px){.hero-description br:first-child{display:block}.experience-photo img{object-position:center 10%}}
 @media(min-width:801px){.ritual.is-pinned .ritual-stage{height:calc(100svh - 90px);min-height:600px;max-height:950px}.ritual.is-pinned .ritual-images{min-height:0;height:100%}}
 

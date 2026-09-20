@@ -13,7 +13,7 @@ Ejecutar `python -m http.server 4173` y abrir http://localhost:4173.
 - Videos de cocina, experiencia y Yeyo con controles nativos.
 - Recorrido de tres escenas ligado al scroll en escritorio; lectura completa sin fijación en móvil y con movimiento reducido.
 - Paralaje moderado, transiciones, acordeones y consulta que prepara un mensaje para Instagram.
-- Fotografía y video propios. Ninguna imagen generada se usa en la página actual.
+- Fotografía y video de Parriyeyo. El retrato `assets/editorial/yeyo-gesto.webp` fue suministrado y aprobado por Pablo para portada y equipo; el archivo recibido incluye la leyenda «Contenido generado por IA» y se conserva sin retoque, convertido a WebP.
 
 ## Contenido y fuentes
 
