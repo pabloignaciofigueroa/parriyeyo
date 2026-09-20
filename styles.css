@@ -124,3 +124,11 @@ img[src^="assets/editorial/"],#gallery-image,#brand-video{border-radius:var(--co
 body :is(.hero-description,.section-aside>p,.dish>p,.experience-intro>p:not(.eyebrow),details p,summary,.ritual-step>p,.chef-copy>p:not(.eyebrow),.quote-copy>p:not(.eyebrow),.quote-copy .quote-direct,.quote-direct>a,.hero-stills figcaption,.chef-main figcaption,.team-photo figcaption,.dish-caption>span,.eyebrow,.button,.text-button,.text-link,.site-header nav,.hero-foot,.film-label,.round-seal,.rail-controls>span,.play-pill,.media-control,.ritual-step>span,.footer-top>a:last-child,.footer-bottom,#video-dialog>p,#gallery-caption,.skip):not(#quote-form *,#quote-dialog *){
 font-family:var(--body);font-size:var(--sans-size);line-height:var(--sans-leading);font-weight:var(--sans-weight)
 }
+
+/* Video windows follow the section that opened them. */
+#video-dialog{--video-surface:var(--ink);--video-text:var(--paper);background:var(--video-surface);color:var(--video-text);border-radius:var(--corner-radius)}
+#video-dialog[data-surface="paper"]{--video-surface:var(--paper);--video-text:var(--ink)}
+#video-dialog[data-surface="orange"]{--video-surface:var(--orange);--video-text:var(--ink);--action-icon:var(--paper)}
+#video-dialog #brand-video{background:var(--video-surface)}
+#video-dialog .dialog-close{color:inherit;border-color:currentColor}
+#video-dialog .dialog-close:hover{background:var(--video-text);color:var(--video-surface)}

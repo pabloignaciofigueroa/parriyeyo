@@ -35,6 +35,8 @@ function openDialog(dialog){heroVideo.pause();document.body.classList.add('modal
 const film=$('#brand-video');
 const videos={experiencia:'assets/video/experiencia.mp4',cocina:'assets/video/cocina.mp4',yeyo:'assets/video/yeyo.mp4',malaya:'assets/video/malaya.mp4'};
 $$('[data-video]').forEach(button=>button.addEventListener('click',()=>{
+ const sourceSection=button.closest('section');
+ $('#video-dialog').dataset.surface=sourceSection?.matches('.experience,.quote')?'orange':sourceSection?.matches('.kitchen,.chef')?'paper':'graphite';
  $('#video-title').textContent=button.dataset.title;film.querySelectorAll('track').forEach(t=>t.remove());if(button.dataset.video==='yeyo'){const track=document.createElement('track');track.kind='captions';track.label='Español · resumen';track.srclang='es';track.src='assets/video/yeyo-resumen.vtt';track.default=true;film.append(track);}film.src=videos[button.dataset.video];film.poster=button.dataset.video==='yeyo'?'assets/editorial/yeyo-servicio.webp':'assets/editorial/parrilla.webp';openDialog($('#video-dialog'));film.play().catch(()=>{});
 }));
 $('#video-dialog').addEventListener('close',()=>{film.pause();film.removeAttribute('src');film.load();});
