@@ -59,3 +59,8 @@ summary>span,
 
 /* Mobile header keeps only the brand. */
 @media(max-width:800px){.site-header .menu-toggle,.site-header nav,.site-header nav.is-open{display:none}}
+
+/* Keep the video invitation beside the portrait on mobile. */
+.chef-cta-mobile{display:none}
+.chef-copy .occasion-links{grid-template-columns:1fr;margin-top:32px}
+@media(max-width:800px){.chef-cta-mobile{display:inline-flex;margin-top:24px}.chef-copy>.chef-cta-desktop{display:none}}
