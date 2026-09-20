@@ -103,5 +103,6 @@ img[src^="assets/editorial/"],#gallery-image,#brand-video{border-radius:var(--co
 @media(max-width:390px){.hero h1{font-size:93.75px}}
 
 /* Mobile poster lettering without expanding the hero beyond the viewport. */
-.hero-mobile-break{display:none}
-@media(max-width:600px){.hero-mobile-break{display:block}.hero-copy{min-width:0}.hero h1{max-width:100%;font-size:min(103.125px,24vw)}}
+@media(max-width:600px){.hero-copy{min-width:0}.hero h1{max-width:100%;font-size:min(103.125px,24vw)}}
+
+@media(max-width:600px){.hero h1 .hero-opening{font-size:min(82.5px,18.5vw);white-space:nowrap}}
