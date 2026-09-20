@@ -82,3 +82,5 @@ summary>span,
 /* Match the occasion selector text to the light form hints. */
 #quote-form #occasion{font-family:var(--body);font-weight:300;color:rgb(25 25 24 / 25%)}
 #quote-form #occasion option{color:var(--ink);font-weight:300;background:var(--paper)}
+
+@media(max-width:800px){.ritual-step h2 .ritual-ending{color:var(--orange)}}
