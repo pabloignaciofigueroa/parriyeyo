@@ -97,7 +97,7 @@ img[src^="assets/editorial/"],#gallery-image,#brand-video{border-radius:var(--co
 .kitchen-bottom .button{background:var(--ink);color:var(--paper);--action-icon:var(--orange)}
 .kitchen-bottom .button:hover{background:#383834}
 
-/* Hero title: 25 percent larger than the shared section scale. */
-.hero h1{font-size:clamp(75px,7.5vw,112.5px)}
-@media(max-width:800px){.hero h1{font-size:82.5px}}
-@media(max-width:390px){.hero h1{font-size:75px}}
+/* Hero title: two successive 25 percent increases over the shared section scale. */
+.hero h1{font-size:clamp(93.75px,9.375vw,140.625px)}
+@media(max-width:800px){.hero h1{font-size:103.125px}}
+@media(max-width:390px){.hero h1{font-size:93.75px}}
