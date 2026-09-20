@@ -71,3 +71,6 @@ summary>span,
 #quote-form label:focus-within>.field-title{color:#ffbf00}
 #quote-form input,#quote-form select{color:var(--ink)}
 #quote-form input:focus,#quote-form select:focus{outline:none;box-shadow:none}
+
+/* Placeholder hints stay lighter than labels and entered answers. */
+#quote-form input::placeholder,#quote-form textarea::placeholder{font-family:var(--body);font-weight:300;color:var(--ink);opacity:.5}
