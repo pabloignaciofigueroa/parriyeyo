@@ -116,3 +116,11 @@ img[src^="assets/editorial/"],#gallery-image,#brand-video{border-radius:var(--co
 .ritual.is-warm .ritual-progress span{background:var(--paper)}
 .ritual-step h2,.ritual-step h2 em,.ritual-step h2 .ritual-ending,.ritual-step>span,.ritual-step>p{transition:color .25s ease}
 .ritual-progress,.ritual-progress span{transition:background-color .25s ease}
+
+/* Shared sans typography follows the hero at every viewport; quote form is excluded. */
+:root{--sans-size:21px;--sans-leading:1.4;--sans-weight:500}
+@media(max-width:1150px){:root{--sans-size:19px}}
+@media(max-width:800px){:root{--sans-size:18px}}
+body :is(.hero-description,.section-aside>p,.dish>p,.experience-intro>p:not(.eyebrow),details p,summary,.ritual-step>p,.chef-copy>p:not(.eyebrow),.quote-copy>p:not(.eyebrow),.quote-copy .quote-direct,.quote-direct>a,.hero-stills figcaption,.chef-main figcaption,.team-photo figcaption,.dish-caption>span,.eyebrow,.button,.text-button,.text-link,.site-header nav,.hero-foot,.film-label,.round-seal,.rail-controls>span,.play-pill,.media-control,.ritual-step>span,.footer-top>a:last-child,.footer-bottom,#video-dialog>p,#gallery-caption,.skip):not(#quote-form *,#quote-dialog *){
+font-family:var(--body);font-size:var(--sans-size);line-height:var(--sans-leading);font-weight:var(--sans-weight)
+}
