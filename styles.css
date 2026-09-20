@@ -121,7 +121,7 @@ img[src^="assets/editorial/"],#gallery-image,#brand-video{border-radius:var(--co
 :root{--sans-size:21px;--sans-leading:1.4;--sans-weight:500}
 @media(max-width:1150px){:root{--sans-size:19px}}
 @media(max-width:800px){:root{--sans-size:18px}}
-body :is(.hero-description,.section-aside>p,.dish>p,.experience-intro>p:not(.eyebrow),details p,summary,.ritual-step>p,.chef-copy>p:not(.eyebrow),.quote-copy>p:not(.eyebrow),.quote-copy .quote-direct,.quote-direct>a,.hero-stills figcaption,.chef-main figcaption,.team-photo figcaption,.dish-caption>span,.eyebrow,.button,.text-button,.text-link,.site-header nav,.hero-foot,.film-label,.round-seal,.rail-controls>span,.play-pill,.media-control,.ritual-step>span,.footer-top>a:last-child,.footer-bottom,#video-dialog>p,#gallery-caption,.skip):not(#quote-form *,#quote-dialog *,#navigation .button){
+body :is(.hero-description,.section-aside>p,.dish>p,.experience-intro>p:not(.eyebrow),details p,summary,.ritual-step>p,.chef-copy>p:not(.eyebrow),.quote-copy>p:not(.eyebrow),.quote-copy .quote-direct,.quote-direct>a,.hero-stills figcaption,.chef-main figcaption,.team-photo figcaption,.dish-caption>span,.eyebrow,.button,.text-button,.text-link,.site-header nav,.hero-foot,.film-label,.round-seal,.rail-controls>span,.play-pill,.media-control,.footer-top>a:last-child,.footer-bottom,#video-dialog>p,#gallery-caption,.skip):not(#quote-form *,#quote-dialog *,#navigation .button){
 font-family:var(--body);font-size:var(--sans-size);line-height:var(--sans-leading);font-weight:var(--sans-weight)
 }
 
@@ -165,3 +165,6 @@ font-family:var(--body);font-size:var(--sans-size);line-height:var(--sans-leadin
 .dish-rail::-webkit-scrollbar{display:none}
 .dish-scroll-indicator{position:relative;height:.6px;margin-top:0}
 .dish-scroll-indicator>span{position:absolute;top:0;height:100%;background:#79746b}
+
+/* Secondary ritual labels at 75 percent of the shared sans size. */
+.ritual-step>span{font-family:var(--body);font-size:calc(var(--sans-size) * .75);line-height:var(--sans-leading);font-weight:var(--sans-weight)}
