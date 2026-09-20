@@ -2,7 +2,7 @@
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
 const motion = matchMedia('(prefers-reduced-motion: reduce)');
-let userReduced=false;let motionManager;
+let motionManager;
 const menu = $('.menu-toggle');
 function closeMenu(){ menu.setAttribute('aria-expanded','false'); $('#navigation').classList.remove('is-open'); }
 menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true'; menu.setAttribute('aria-expanded',String(open));$('#navigation').classList.toggle('is-open',open);});
@@ -28,7 +28,7 @@ heroVideo.addEventListener('pause',()=>{motionButton.innerHTML='<span class="ui-
 motionButton.addEventListener('click',()=>{ambientAllowed=heroVideo.paused;syncAmbient();});
 if('IntersectionObserver' in window){new IntersectionObserver(entries=>{heroVisible=entries[0].isIntersecting;syncAmbient();},{threshold:.15}).observe(heroVideo);}else{heroVisible=true;syncAmbient();}
 document.addEventListener('visibilitychange',syncAmbient);
-motion.addEventListener('change',()=>{ambientAllowed=!motion.matches&&!userReduced&&!navigator.connection?.saveData;syncAmbient();setupMotion();});
+motion.addEventListener('change',()=>{ambientAllowed=!motion.matches&&!navigator.connection?.saveData;syncAmbient();setupMotion();});
 // Native dialogs keep focus contained, support Escape and return it to the trigger.
 $$('dialog').forEach(dialog=>{
  dialog.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());
@@ -69,7 +69,7 @@ if(content.conditionsPdf&&/^assets\/[a-z0-9_/-]+\.pdf$/i.test(content.conditions
 // Progressive motion: all copy and images remain available without GSAP or JavaScript.
 function setupMotion(){
  motionManager?.revert();
- if(userReduced||motion.matches)return;
+ if(motion.matches)return;
  if(window.gsap&&window.ScrollTrigger){
  gsap.registerPlugin(ScrollTrigger);
  const mm=gsap.matchMedia();motionManager=mm;
@@ -94,22 +94,13 @@ function setupMotion(){
 
 }
 setupMotion();
-$('#motion-mode').addEventListener('click',()=>{
- userReduced=!userReduced;
- document.documentElement.classList.toggle('reduce-motion',userReduced);
- $('#motion-mode').setAttribute('aria-pressed',String(userReduced));
- $('#motion-mode').textContent=userReduced?'Activar movimiento':'Reducir movimiento';
- ambientAllowed=!userReduced&&!motion.matches&&!navigator.connection?.saveData;
- syncAmbient();setupMotion();
- if(window.ScrollTrigger)ScrollTrigger.refresh();
-});
 
 // The fire scene is a real inline video on mobile and desktop.
 const ritualVideo = $('#ritual-video');
 const ritualFrame = $('.ritual-film');
 const ritualButton = $('#ritual-video-toggle');
 let ritualVisible = false;
-let ritualAllowed = !motion.matches && !userReduced;
+let ritualAllowed = !motion.matches;
 function loadRitualVideo(){
  if(!ritualVideo.getAttribute('src')){
   ritualVideo.muted = true;
@@ -152,9 +143,8 @@ if('IntersectionObserver' in window){
 new MutationObserver(syncRitualVideo).observe(ritualFrame,{attributes:true,attributeFilter:['class']});
 $$('dialog').forEach(dialog=>new MutationObserver(syncRitualVideo).observe(dialog,{attributes:true,attributeFilter:['open']}));
 document.addEventListener('visibilitychange',syncRitualVideo);
-function updateRitualPreference(){ritualAllowed=!motion.matches&&!userReduced;syncRitualVideo();}
+function updateRitualPreference(){ritualAllowed=!motion.matches;syncRitualVideo();}
 motion.addEventListener('change',updateRitualPreference);
-$('#motion-mode').addEventListener('click',updateRitualPreference);
 
 matchMedia('(max-width:800px)').addEventListener('change',()=>{
  ritualVideo.pause();ritualVideo.removeAttribute('src');loadRitualVideo();syncRitualVideo();
