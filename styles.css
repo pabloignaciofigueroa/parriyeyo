@@ -150,3 +150,6 @@ font-family:var(--body);font-size:var(--sans-size);line-height:var(--sans-leadin
 
 /* Header CTA matches the sans buttons with one heavier weight. */
 #navigation .button{font-family:var(--body);font-size:var(--sans-size);line-height:var(--sans-leading);font-weight:600}
+
+/* Scroll cue is reserved for mobile. */
+@media(min-width:601px){.hero-foot{display:none}}
