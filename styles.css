@@ -92,3 +92,7 @@ img[src^="assets/editorial/"],#gallery-image,#brand-video{border-radius:var(--co
 .button,.text-button,.text-link,.play-pill,.media-control,.menu-toggle{border-radius:var(--corner-radius)}
 
 .quote form{border-radius:var(--corner-radius)}
+
+/* Preparation CTA follows the dark button contrast. */
+.kitchen-bottom .button{background:var(--ink);color:var(--paper);--action-icon:var(--orange)}
+.kitchen-bottom .button:hover{background:#383834}
