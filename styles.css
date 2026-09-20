@@ -28,3 +28,7 @@ dialog{border:0;background:var(--paper);color:var(--ink);padding:22px;max-width:
 .hero .round-seal{color:var(--ink);border-color:var(--ink)}
 .experience .service-list details{border-color:var(--ink)}
 .experience .service-list details p{color:var(--ink)}
+
+/* Hero: keep the scroll cue aligned after removing secondary copy. */
+.hero-foot{justify-content:flex-end}
+.hero-actions .text-button span{color:var(--orange)}
