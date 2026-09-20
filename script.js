@@ -97,7 +97,6 @@ setupMotion();
 
 // One continuous loop at every viewport; scrolling changes only the copy.
 const ritualVideo = $('#ritual-video');
-const ritualButton = $('#ritual-video-toggle');
 let ritualVisible = false;
 let ritualAllowed = !motion.matches;
 function loadRitualVideo(){
@@ -111,24 +110,9 @@ function loadRitualVideo(){
 function syncRitualVideo(){
  if(ritualAllowed && ritualVisible && !document.hidden && !$('dialog[open]')){
   loadRitualVideo();
-  ritualVideo.play().catch(()=>{
-   ritualButton.innerHTML='<span class="ui-icon" aria-hidden="true">▶</span> Reproducir';
-   ritualButton.setAttribute('aria-label','Reproducir video de preparaciones');
-  });
+  ritualVideo.play().catch(()=>{});
  }else ritualVideo.pause();
 }
-ritualVideo.addEventListener('play',()=>{
- ritualButton.innerHTML='<span class="ui-icon" aria-hidden="true">Ⅱ</span> Pausar';
- ritualButton.setAttribute('aria-label','Pausar video de preparaciones');
-});
-ritualVideo.addEventListener('pause',()=>{
- ritualButton.innerHTML='<span class="ui-icon" aria-hidden="true">▶</span> Reproducir';
- ritualButton.setAttribute('aria-label','Reproducir video de preparaciones');
-});
-ritualButton.addEventListener('click',()=>{
- ritualAllowed=ritualVideo.paused;
- syncRitualVideo();
-});
 if('IntersectionObserver' in window){
  const preloadRitual = new IntersectionObserver(entries=>{
   if(entries.some(e=>e.isIntersecting)){loadRitualVideo();preloadRitual.disconnect();}
