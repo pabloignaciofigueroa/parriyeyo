@@ -90,3 +90,5 @@ summary>span,
 .hero-stills figure,.dish-photo,.experience-photo,.chef-main,.team-photo,.ritual-images,.hero-film{border-radius:var(--corner-radius);overflow:hidden}
 img[src^="assets/editorial/"],#gallery-image,#brand-video{border-radius:var(--corner-radius)}
 .button,.text-button,.text-link,.play-pill,.media-control,.menu-toggle{border-radius:var(--corner-radius)}
+
+.quote form{border-radius:var(--corner-radius)}
