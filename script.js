@@ -103,3 +103,55 @@ $('#motion-mode').addEventListener('click',()=>{
  syncAmbient();setupMotion();
  if(window.ScrollTrigger)ScrollTrigger.refresh();
 });
+
+// The fire scene is a real inline video on mobile and desktop.
+const ritualVideo = $('#ritual-video');
+const ritualFrame = $('.ritual-film');
+const ritualButton = $('#ritual-video-toggle');
+let ritualVisible = false;
+let ritualAllowed = !motion.matches && !userReduced;
+function loadRitualVideo(){
+ if(!ritualVideo.getAttribute('src')){
+  ritualVideo.muted = true;
+  ritualVideo.defaultMuted = true;
+  ritualVideo.src = ritualVideo.dataset.src;
+  ritualVideo.load();
+ }
+}
+function syncRitualVideo(){
+ if(ritualAllowed && ritualVisible && ritualFrame.classList.contains('active') && !document.hidden && !$('dialog[open]')){
+  loadRitualVideo();
+  ritualVideo.play().catch(()=>{
+   ritualButton.textContent='▶ Reproducir';
+   ritualButton.setAttribute('aria-label','Reproducir video de fuego');
+  });
+ }else ritualVideo.pause();
+}
+ritualVideo.addEventListener('play',()=>{
+ ritualButton.textContent='Ⅱ Pausar';
+ ritualButton.setAttribute('aria-label','Pausar video de fuego');
+});
+ritualVideo.addEventListener('pause',()=>{
+ ritualButton.textContent='▶ Reproducir';
+ ritualButton.setAttribute('aria-label','Reproducir video de fuego');
+});
+ritualButton.addEventListener('click',()=>{
+ ritualAllowed=ritualVideo.paused;
+ syncRitualVideo();
+});
+if('IntersectionObserver' in window){
+ const preloadRitual = new IntersectionObserver(entries=>{
+  if(entries.some(e=>e.isIntersecting)){loadRitualVideo();preloadRitual.disconnect();}
+ },{rootMargin:'400px 0px'});
+ preloadRitual.observe($('.ritual-images'));
+ new IntersectionObserver(entries=>{
+  ritualVisible=entries[0].isIntersecting;
+  syncRitualVideo();
+ },{threshold:0}).observe($('.ritual-images'));
+}else{ritualVisible=true;syncRitualVideo();}
+new MutationObserver(syncRitualVideo).observe(ritualFrame,{attributes:true,attributeFilter:['class']});
+$$('dialog').forEach(dialog=>new MutationObserver(syncRitualVideo).observe(dialog,{attributes:true,attributeFilter:['open']}));
+document.addEventListener('visibilitychange',syncRitualVideo);
+function updateRitualPreference(){ritualAllowed=!motion.matches&&!userReduced;syncRitualVideo();}
+motion.addEventListener('change',updateRitualPreference);
+$('#motion-mode').addEventListener('click',updateRitualPreference);
