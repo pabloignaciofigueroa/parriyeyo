@@ -76,7 +76,6 @@ function setupMotion(){
    gsap.from('.hero-stills figure',{y:28,stagger:.12,duration:1.2,ease:'power3.out'});
    const track=$('.ticker-track');gsap.to(track,{xPercent:-20,ease:'none',scrollTrigger:{trigger:'.ticker',start:'top bottom',end:'bottom top',scrub:1}});
    gsap.utils.toArray('[data-parallax]').forEach(img=>gsap.fromTo(img,{yPercent:-3},{yPercent:3,ease:'none',scrollTrigger:{trigger:img.parentElement,start:'top bottom',end:'bottom top',scrub:1}}));
-   gsap.from('.round-seal',{rotation:8,duration:1.2,ease:'power3.out',scrollTrigger:{trigger:'.hero-visual',start:'top 80%'}});
    gsap.from('.team-photo',{rotation:-2,y:35,duration:1.1,ease:'power3.out',scrollTrigger:{trigger:'.chef-pictures',start:'top 80%'}});
    gsap.utils.toArray('.occasion-links a').forEach((a,i)=>gsap.from(a,{x:-15,duration:.65,delay:i*.06,ease:'power3.out',scrollTrigger:{trigger:'.occasion-links',start:'top 85%'}}));
 
