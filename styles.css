@@ -106,3 +106,13 @@ img[src^="assets/editorial/"],#gallery-image,#brand-video{border-radius:var(--co
 @media(max-width:600px){.hero-copy{min-width:0}.hero h1{max-width:100%;font-size:min(103.125px,24vw)}}
 
 @media(max-width:600px){.hero h1 .hero-opening{font-size:min(82.5px,18.5vw);white-space:nowrap}}
+
+/* Scroll story alternates brand graphite, orange, graphite. */
+.ritual{background:var(--ink);transition:background-color .25s ease,color .25s ease}
+.ritual-stage{background:transparent}
+.ritual.is-warm{background:var(--orange);color:var(--ink);--muted:var(--ink);--line:rgba(25,25,24,.3)}
+.ritual.is-warm .ritual-step>span{color:var(--ink)}
+.ritual.is-warm .ritual-step h2 em,.ritual.is-warm .ritual-step h2 .ritual-ending{color:var(--paper)}
+.ritual.is-warm .ritual-progress span{background:var(--paper)}
+.ritual-step h2,.ritual-step h2 em,.ritual-step h2 .ritual-ending,.ritual-step>span,.ritual-step>p{transition:color .25s ease}
+.ritual-progress,.ritual-progress span{transition:background-color .25s ease}
