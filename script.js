@@ -84,7 +84,7 @@ function setupMotion(){
 
  });
  mm.add('(min-width: 801px) and (prefers-reduced-motion: no-preference)',()=>{
-   const section=$('.ritual'),steps=$('.ritual-step');section.classList.add('is-pinned');let currentStep=0;
+   const section=$('.ritual'),steps=$$('.ritual-step');section.classList.add('is-pinned');let currentStep=0;
    function activate(i){if(i===currentStep)return;steps[currentStep].classList.remove('active');currentStep=i;steps[i].classList.add('active');gsap.fromTo(steps[i],{y:22},{y:0,duration:.55,ease:'power3.out'});}
    ScrollTrigger.create({trigger:section,start:'top 90px',end:'bottom bottom',invalidateOnRefresh:true,onUpdate:self=>{activate(Math.min(2,Math.floor(self.progress*3)));$('.ritual-progress span').style.width=`${33.33+self.progress*66.67}%`;}});
    return()=>{section.classList.remove('is-pinned');steps.forEach((s,i)=>s.classList.toggle('active',i===0));};
