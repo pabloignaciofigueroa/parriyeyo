@@ -12,20 +12,16 @@ matchMedia('(min-width:801px)').addEventListener('change',e=>{if(e.matches)close
 $('#year').textContent = new Date().getFullYear();
 const today = new Date();
 $('#date').min = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
-// Ambient footage loads only when visible; user intent overrides automatic playback.
+// Ambient footage loops automatically while visible.
 const heroVideo = $('#hero-video');
-const motionButton = $('#motion-toggle');
 let ambientAllowed = !motion.matches && !navigator.connection?.saveData;
 let heroVisible = false;
 function loadAmbient(){if(!heroVideo.getAttribute('src')){heroVideo.src=heroVideo.dataset.src;heroVideo.load();}}
 function syncAmbient(){
   if(ambientAllowed&&heroVisible&&!document.hidden&&!$('dialog[open]')){
-    loadAmbient();heroVideo.play().catch(()=>{motionButton.innerHTML='<span class="ui-icon" aria-hidden="true">▶</span> Reproducir';});
+    loadAmbient();heroVideo.play().catch(()=>{});
   }else heroVideo.pause();
 }
-heroVideo.addEventListener('play',()=>{motionButton.innerHTML='<span class="ui-icon" aria-hidden="true">Ⅱ</span> Pausar';motionButton.setAttribute('aria-label','Pausar video de portada');});
-heroVideo.addEventListener('pause',()=>{motionButton.innerHTML='<span class="ui-icon" aria-hidden="true">▶</span> Reproducir';motionButton.setAttribute('aria-label','Reproducir video de portada');});
-motionButton.addEventListener('click',()=>{ambientAllowed=heroVideo.paused;syncAmbient();});
 if('IntersectionObserver' in window){new IntersectionObserver(entries=>{heroVisible=entries[0].isIntersecting;syncAmbient();},{threshold:.15}).observe(heroVideo);}else{heroVisible=true;syncAmbient();}
 document.addEventListener('visibilitychange',syncAmbient);
 motion.addEventListener('change',()=>{ambientAllowed=!motion.matches&&!navigator.connection?.saveData;syncAmbient();setupMotion();});
