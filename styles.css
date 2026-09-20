@@ -144,5 +144,6 @@ font-family:var(--body);font-size:var(--sans-size);line-height:var(--sans-leadin
  #inicio .round-seal strong{font-size:23.8px}
 }
 
-/* Brand paper seal with graphite lettering and orange arrow. */
-#inicio .round-seal{background:var(--paper);color:var(--ink);--action-icon:var(--orange)}
+/* Centered message on the brand orange seal. */
+#inicio .round-seal{background:var(--orange);color:var(--ink);justify-content:center;align-items:center;text-align:center}
+#inicio .round-seal strong{margin-bottom:0}
