@@ -133,13 +133,13 @@ font-family:var(--body);font-size:var(--sans-size);line-height:var(--sans-leadin
 #video-dialog .dialog-close{color:inherit;border-color:currentColor}
 #video-dialog .dialog-close:hover{background:var(--video-text);color:var(--video-surface)}
 
-/* Larger announcement seal on tablet and desktop (+150% diameter). */
+/* Announcement seal at 70 percent of its enlarged size. */
 @media(min-width:801px){
- #inicio .round-seal{--seal-size:330px;width:var(--seal-size);height:var(--seal-size);left:-32px;top:calc(58% - 70px);padding:22px;border-width:10px;font-size:25px;line-height:1.1}
- #inicio .round-seal strong{font-size:50px;margin:12px 0 6px}
- #inicio .round-seal>span{font-size:42px}
+ #inicio .round-seal{--seal-size:231px;width:var(--seal-size);height:var(--seal-size);left:-32px;top:calc(58% - 70px);padding:15.4px;border-width:7px;font-size:17.5px;line-height:1.1}
+ #inicio .round-seal strong{font-size:35px;margin:8.4px 0 4.2px}
+ #inicio .round-seal>span{font-size:29.4px}
 }
 @media(min-width:801px) and (max-width:1150px){
- #inicio .round-seal{--seal-size:287.5px;font-size:23px;padding:18px}
- #inicio .round-seal strong{font-size:42.5px}
+ #inicio .round-seal{--seal-size:201.25px;font-size:16.1px;padding:12.6px}
+ #inicio .round-seal strong{font-size:29.75px}
 }
