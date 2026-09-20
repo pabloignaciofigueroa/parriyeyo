@@ -156,5 +156,5 @@ font-family:var(--body);font-size:var(--sans-size);line-height:var(--sans-leadin
 
 /* Oversized brand grill texture behind the hero copy on every screen. */
 .hero-copy{position:relative;isolation:isolate;overflow:hidden}
-.hero-copy::before{content:"";position:absolute;z-index:-1;pointer-events:none;inset:-7% -12% -7% 12%;background:url("assets/marca/isotipo.svg") right center / auto 100% no-repeat;opacity:.1}
+.hero-copy::before{content:"";position:absolute;z-index:-1;pointer-events:none;inset:-7% -12% -7% 12%;background:url("assets/marca/isotipo.svg") right center / auto 100% no-repeat;opacity:.05}
 @media(max-width:800px){.hero-copy::before{inset:0 -23% 0 5%;background-position:right center;background-size:auto 100%}}
