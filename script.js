@@ -20,11 +20,11 @@ let heroVisible = false;
 function loadAmbient(){if(!heroVideo.getAttribute('src')){heroVideo.src=heroVideo.dataset.src;heroVideo.load();}}
 function syncAmbient(){
   if(ambientAllowed&&heroVisible&&!document.hidden&&!$('dialog[open]')){
-    loadAmbient();heroVideo.play().catch(()=>{motionButton.textContent='▶ Reproducir';});
+    loadAmbient();heroVideo.play().catch(()=>{motionButton.innerHTML='<span class="ui-icon" aria-hidden="true">▶</span> Reproducir';});
   }else heroVideo.pause();
 }
-heroVideo.addEventListener('play',()=>{motionButton.textContent='Ⅱ Pausar';motionButton.setAttribute('aria-label','Pausar video de portada');});
-heroVideo.addEventListener('pause',()=>{motionButton.textContent='▶ Reproducir';motionButton.setAttribute('aria-label','Reproducir video de portada');});
+heroVideo.addEventListener('play',()=>{motionButton.innerHTML='<span class="ui-icon" aria-hidden="true">Ⅱ</span> Pausar';motionButton.setAttribute('aria-label','Pausar video de portada');});
+heroVideo.addEventListener('pause',()=>{motionButton.innerHTML='<span class="ui-icon" aria-hidden="true">▶</span> Reproducir';motionButton.setAttribute('aria-label','Reproducir video de portada');});
 motionButton.addEventListener('click',()=>{ambientAllowed=heroVideo.paused;syncAmbient();});
 if('IntersectionObserver' in window){new IntersectionObserver(entries=>{heroVisible=entries[0].isIntersecting;syncAmbient();},{threshold:.15}).observe(heroVideo);}else{heroVisible=true;syncAmbient();}
 document.addEventListener('visibilitychange',syncAmbient);
@@ -122,17 +122,17 @@ function syncRitualVideo(){
  if(ritualAllowed && ritualVisible && ritualFrame.classList.contains('active') && !document.hidden && !$('dialog[open]')){
   loadRitualVideo();
   ritualVideo.play().catch(()=>{
-   ritualButton.textContent='▶ Reproducir';
+   ritualButton.innerHTML='<span class="ui-icon" aria-hidden="true">▶</span> Reproducir';
    ritualButton.setAttribute('aria-label','Reproducir video de fuego');
   });
  }else ritualVideo.pause();
 }
 ritualVideo.addEventListener('play',()=>{
- ritualButton.textContent='Ⅱ Pausar';
+ ritualButton.innerHTML='<span class="ui-icon" aria-hidden="true">Ⅱ</span> Pausar';
  ritualButton.setAttribute('aria-label','Pausar video de fuego');
 });
 ritualVideo.addEventListener('pause',()=>{
- ritualButton.textContent='▶ Reproducir';
+ ritualButton.innerHTML='<span class="ui-icon" aria-hidden="true">▶</span> Reproducir';
  ritualButton.setAttribute('aria-label','Reproducir video de fuego');
 });
 ritualButton.addEventListener('click',()=>{

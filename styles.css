@@ -35,3 +35,22 @@ dialog{border:0;background:var(--paper);color:var(--ink);padding:22px;max-width:
 
 .ritual-film video{width:100%;height:100%;object-fit:cover;object-position:center}
 .ritual-film .media-control{z-index:1}
+
+/* Action icons use the accent of their immediate surface. */
+:root{--action-icon:var(--orange)}
+.experience,.quote{--action-icon:var(--paper)}
+.button,.round-seal{--action-icon:var(--paper)}
+form .button,.media-control,.play-pill,.dish-photo>span,dialog{--action-icon:var(--orange)}
+.arrow-button:hover:enabled,.play-pill:hover{--action-icon:var(--paper)}
+.ui-icon,
+.menu-toggle>span,
+summary>span,
+.button>span,
+.text-button>span,
+.text-link>span,
+.hero-foot a>span,
+.round-seal>span,
+.occasion-links a>span,
+.play-pill>span,
+.dish-photo>span,
+.hero-actions .text-button span{color:var(--action-icon)}
