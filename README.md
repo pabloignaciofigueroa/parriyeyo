@@ -1,24 +1,32 @@
 # Parriyeyo
 
-Sitio estático de catering para eventos. HTML, CSS y JavaScript, sin compilación ni dependencias de ejecución.
+Sitio estático de catering para eventos. HTML, CSS y JavaScript, sin compilación. GSAP y ScrollTrigger se sirven localmente desde `assets/vendor/`.
 
 ## Vista local
 
-```sh
-python -m http.server 8770
-```
+Ejecutar `python -m http.server 4173` y abrir http://localhost:4173.
 
-Abrir http://localhost:8770. Publicar el contenido de esta carpeta en cualquier alojamiento estático.
+## Experiencia visual
 
-## Archivos
+- Portada con montaje de 15,5 segundos de videos reales de @parriyeyo, sin audio automático.
+- Carrusel de seis preparaciones con ampliación de fotografías y navegación por teclado.
+- Videos de cocina, experiencia y Yeyo con controles nativos.
+- Recorrido de tres escenas ligado al scroll en escritorio; lectura completa sin fijación en móvil y con movimiento reducido.
+- Paralaje moderado, transiciones, acordeones y consulta que prepara un mensaje para Instagram.
+- Fotografía y video propios. Ninguna imagen generada se usa en la página actual.
 
-- `index.html`, `styles.css`, `script.js`: sitio e interacciones.
-- `contenido.js`: contenidos configurables.
-- `assets/`: fotografías, video, tipografías y variantes de marca.
-- `assets/marca/guia.html`: guía visual de uso del logo.
-- `CONTINUAR_WEB.md`: estado del trabajo y criterios de continuidad.
-- `PAUTA_DIEGO.md`: información comercial pendiente de confirmar.
+## Contenido y fuentes
 
-El formulario prepara un mensaje para contacto; no tiene servidor de recepción. El hero de patio es una escena ilustrativa generada. La fotografía de Yeyo haciendo el gesto proviene del material aportado. Los detalles comerciales pendientes no deben presentarse como confirmados.
+`contenido.js` permite añadir aliados y PDF de condiciones una vez confirmados. Los manifiestos `assets/editorial/fuentes.json` y `assets/video/fuentes.json` registran las publicaciones y momentos de origen.
 
-Los respaldos completos de Instagram, sesiones de navegador y archivos de trabajo locales no forman parte del repositorio.
+Los PSD editables, originales de Instagram, 1.716 fotogramas a intervalos de 0,5 segundos, hojas de contacto y respaldos se conservan localmente en `analisis/renovacion/` e `instagram/`; no se publican.
+
+El formulario no envía ni reserva: prepara un mensaje para copiar y enviar por Instagram. No hay precios, cobertura, mínimos de invitados ni testimonios inventados.
+
+## Publicación y reversión
+
+Repositorio: https://github.com/pabloignaciofigueroa/parriyeyo
+Sitio: https://parriyeyo.vercel.app/
+Versión anterior: `39de38b6c6848521072b7231deb5072d81fc3dcc`. Respaldo local: `analisis/renovacion/antes/sitio-original.zip`.
+
+No incluir carpetas locales de Gómez y Gómez al publicar este proyecto.
